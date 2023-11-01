@@ -1,12 +1,11 @@
 name: simple_logger
-description: A starting point for Dart libraries or applications.
+description: Simple logger that provides some colorful log capabilities.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+# repository: https://github.com/ruchan-o7/dart_simple_logger/tree/main
 
 environment:
   sdk: ^3.1.4
 
-# Add regular dependencies here.
 dependencies:
   # path: ^1.8.0
 
