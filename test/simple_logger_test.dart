@@ -1,5 +1,4 @@
 import 'package:simple_logger/simple_logger.dart';
-import 'package:simple_logger/src/logger_builder.dart';
 import 'package:test/test.dart';
 
 void main() {
