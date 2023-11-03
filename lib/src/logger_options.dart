@@ -1,4 +1,4 @@
-import 'package:simple_logger/src/log_color.dart';
+import '../simple_logger.dart';
 
 class LoggerOptions {
   late String pChar = "*";
