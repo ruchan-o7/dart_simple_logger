@@ -1,5 +1,3 @@
-// TODO: Put public facing types in this file.
-
 // ignore_for_file: non_constant_identifier_names
 
 import 'log_color.dart';
