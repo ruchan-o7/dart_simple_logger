@@ -1,8 +1,8 @@
-import 'package:simple_logger/src/logger_builder.dart';
+import 'package:simple_logger/simple_logger.dart';
 
 void main() {
-  var logger = LoggerBuilder.CreateBuilder().SetEnabled(true).SetPrefix("/\\").Create();
-  logger.LogInformation("Information");
-  logger.LogWarning("Warnings");
-  logger.LogError("Some Erros");
+  LoggerBuilder.CreateBuilder().SetEnabled(true).SetPrefix("/\\").Create();
+  Logger.LogInformation("Information");
+  Logger.LogWarning("Warnings");
+  Logger.LogError("Some Erros");
 }

@@ -1,17 +1,14 @@
-// TODO: Put public facing types in this file.
-
 // ignore_for_file: non_constant_identifier_names
-
 import 'log_color.dart';
 import 'logger_options.dart';
 
 class Logger {
-  late String prefix;
-  late String _buildedPrefix;
-  late bool _isDebugEnabled;
-  late LogColor _infoColor;
-  late LogColor _warningColor;
-  late LogColor _errorColor;
+  static late String prefix;
+  static late String _buildedPrefix;
+  static late bool _isDebugEnabled;
+  static late LogColor _infoColor;
+  static late LogColor _warningColor;
+  static late LogColor _errorColor;
 
   Logger(LoggerOptions options) {
     prefix = options.pChar;
@@ -21,14 +18,13 @@ class Logger {
     _errorColor = options.errorColor;
     _buildedPrefix = prefix * 25;
   }
-  void SetState(bool value) => _isDebugEnabled = value;
-
-  void SetPrefix(String pref) {
+  static void SetState(bool value) => _isDebugEnabled = value;
+  static void SetPrefix(String pref) {
     prefix = pref;
     _buildedPrefix = prefix * 25;
   }
 
-  void LogInformation(Object? object) {
+  static void LogInformation(Object? object) {
     if (_isDebugEnabled) {
       if (_IsList(object)) {
         _logList(object as List);
@@ -42,23 +38,23 @@ class Logger {
     }
   }
 
-  void LogWarning(String msg) {
+  static void LogWarning(String msg) {
     _printSinglePrefix(_warningColor);
     print(_GetWithColor(LogColor.Yellow, msg));
     _printSinglePrefix(_warningColor);
   }
 
-  String _GetWithColor(LogColor color, Object? msg) {
+  static String _GetWithColor(LogColor color, Object? msg) {
     return "\x1B${color.colorCode} $msg \x1B[0m";
   }
 
-  void LogError(String msg) {
+  static void LogError(String msg) {
     _printSinglePrefix(_errorColor);
     print(_GetWithColor(LogColor.Red, msg));
     _printSinglePrefix(_errorColor);
   }
 
-  void _logList(List? listObject) {
+  static void _logList(List? listObject) {
     if (listObject == null || listObject.isEmpty) {
       _logWithPrefixAndSuffix("List is Empty");
       return;
@@ -70,21 +66,22 @@ class Logger {
     _printSinglePrefix(_infoColor);
   }
 
-  void _log(Object? msg, LogColor color) {
+  static void _log(Object? msg, LogColor color) {
     print(_GetWithColor(color, msg));
   }
 
-  void _logWithPrefixAndSuffix(Object? msg, [LogColor color = LogColor.Green]) {
+  static void _logWithPrefixAndSuffix(Object? msg,
+      [LogColor color = LogColor.Green]) {
     _printSinglePrefix(color);
     _log(msg, color);
     _printSinglePrefix(color);
   }
 
-  void _printSinglePrefix(LogColor color) {
+  static void _printSinglePrefix(LogColor color) {
     print(_GetWithColor(color, _buildedPrefix));
   }
 
-  void _logMap(Map? mapObject) {
+  static void _logMap(Map? mapObject) {
     if (mapObject == null || mapObject.isEmpty) {
       _logWithPrefixAndSuffix("Map is Empty");
       return;
@@ -98,6 +95,6 @@ class Logger {
     _printSinglePrefix(LogColor.Green);
   }
 
-  bool _IsMap(Object? object) => object is Map;
-  bool _IsList(Object? object) => object is List;
+  static bool _IsMap(Object? object) => object is Map;
+  static bool _IsList(Object? object) => object is List;
 }
