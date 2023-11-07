@@ -89,7 +89,7 @@ class Logger {
     _printSinglePrefix(_infoColor);
     mapObject.forEach((key, value) {
       _log(
-          "${_GetWithColor(LogColor.Yellow, "key:")} ${_GetWithColor(_infoColor, key)}, ${_GetWithColor(LogColor.Yellow, "value:")} ${_GetWithColor(LogColor.Green, key)}",
+          "${_GetWithColor(LogColor.Yellow, "key:")} ${_GetWithColor(_infoColor, key)}, ${_GetWithColor(LogColor.Yellow, "value:")} ${_GetWithColor(LogColor.Green, value)}",
           _infoColor);
     });
     _printSinglePrefix(LogColor.Green);
